@@ -8,8 +8,14 @@
   Filename:	
   .DESCRIPTION
   Get Site Name based on IP Subnet Octet + IP Default GW
-  Uses a 3d array. Each line must align with value in preceeding line. 
+  Uses a 3d array. Each dimension (line) must align with value in preceeding line.
+  Dimension 1 = IP Octet
+  Dimension 2 = Default GW
+  Dimension 3 = return value / location
   For example, subnet 192.168.1 has default GW of 192.168.1.1 and is in Adelaide. Each is in the same position, on the relevant line
+  
+  Return value is the third dimension (line) in the localsubnets array, and should be used to find in WS1 Intelligence Automation and Tag a device. 
+  The Tag would be a filter in a SmartGroup which is used to assign a Profile/Application.
 #>
 
 $localsubnets = @(
