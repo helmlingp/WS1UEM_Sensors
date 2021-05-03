@@ -16,7 +16,7 @@
 #Use ipinfo.io service to get NAT IP Address as well as Geolocation data
 #You will need a subscription to use this in a Company -> http://ipinfo.io
 #ipinfo.io APIToken
-$APIToken = '473540ca8d12c6'
+$APIToken = '98734134kjh'
 
 #Get NAT IP Address
 $devicenatip = (Invoke-WebRequest -Uri 'http://ipinfo.io/ip').Content

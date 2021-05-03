@@ -15,7 +15,7 @@
 $localsubnets = @(
   ('192.168.1','192.168.2','10.200.20','10.200.22'),
   ('192.168.1.1','192.168.2.1','10.200.20.254','10.200.22.254'),
-  ('Adelaide','Sydney','Melbourne','Brisbane')
+  ('Sydney','Adelaide','Melbourne','Brisbane')
 )
 
 #Get local IP Address
