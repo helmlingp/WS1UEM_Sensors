@@ -18,6 +18,9 @@
 #ipinfo.io APIToken
 $APIToken = '98734134kjh'
 
+#Ensure Internet Explorer first launch is disabled
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main" -Name "DisableFirstRunCustomize" -Value 2
+
 #Get NAT IP Address
 $devicenatip = (Invoke-WebRequest -Uri 'http://ipinfo.io/ip').Content
 
