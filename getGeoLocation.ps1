@@ -35,6 +35,7 @@ $devicegeoCity = $devicegeodata.City
 #Refer to https://www.geonames.org/countries/ for $devicegeoCountry codes.
 #Return value should be used to find in WS1 Intelligence Automation and Tag a device. 
 #The Tag would be a filter in a SmartGroup which is used to assign a Profile/Application.
+#Example to return proper Country names rather than shortnames
 if ($devicegeoCountry -eq "AU") {return "Australia"}
 elseif ($devicegeoCountry -eq "US") {return "United States"}
 elseif ($devicegeoCountry -eq "IN") {return "India"}
