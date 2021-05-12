@@ -35,5 +35,5 @@ if($localsubnets[0].Contains($CurrentIPOctet)){
   $index = [array]::indexof($localsubnets[0],$CurrentIPOctet)
   if($localsubnets[1] -Contains $DefaultGW){
     return $localsubnets[2][$index]
-  }
+  } else { return 'unmanaged'}
 }
