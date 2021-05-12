@@ -25,7 +25,7 @@ $localsubnets = @(
 )
 
 #Get local IP Address
-$NIC = Get-WmiObject win32_networkadapterconfiguration -filter "ipenabled = 'true'"
+$NIC = Get-WmiObject win32_networkadapterconfiguration | Where-Object {$_.ipenabled -eq 'true' -and $_.Description -notlike 'VMware*' -and $_.Description -notlike 'Hyper-V*'}
 $CurrentIP = ($NIC.IPAddress[0])
 #Get local subnet address
 $CurrentIPOctet = $CurrentIP.Substring(0, $CurrentIP.lastIndexOf('.'))
