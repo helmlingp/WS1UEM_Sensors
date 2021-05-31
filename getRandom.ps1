@@ -22,6 +22,7 @@ if(Get-ItemProperty -Path $key -Name $name -ErrorAction Ignore) {
   $returnvalue = (Get-ItemProperty -Path $key -Name $name).$name
 } else {
   New-ItemProperty -Path $key -Name $name -PropertyType DWORD -Value $value -ErrorAction SilentlyContinue -Force
+  sleep 1
   $returnvalue = (Get-ItemProperty -Path $key -Name $name).$name
 }
 
