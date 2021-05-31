@@ -16,7 +16,7 @@
 #>
 
 $value = Get-Random -Minimum 1 -Maximum 10
-$name = "RandomNumber"
+$name = "DeploymentRing"
 $key = "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Airwatch"
 if(Get-ItemProperty -Path $key -Name $name -ErrorAction Ignore) {
   $returnvalue = (Get-ItemProperty -Path $key -Name $name).$name
