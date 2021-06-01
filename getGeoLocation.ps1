@@ -9,8 +9,11 @@
   .DESCRIPTION
   Use this sensor to determine the Country or Region or City of the device based upon the NAT'd Public IP.
   Select which item you want to return.
-  
+
   Might not be accurate for networks with centralized Internet Gateways.
+  
+  Return Type: Integer
+  Execution Context: System
 #>
 
 #Use ipinfo.io service to get NAT IP Address as well as Geolocation data
