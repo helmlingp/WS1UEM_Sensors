@@ -12,7 +12,7 @@
 
   Might not be accurate for networks with centralized Internet Gateways.
   
-  Return Type: Integer
+  Return Type: String
   Execution Context: System
 #>
 
