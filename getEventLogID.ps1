@@ -22,12 +22,11 @@ $EndTime = Get-Date
 $Log = 'System'
 $Id = '8'
 
-$Logs = (Get-WinEvent -ListLog * | Where-Object { $_.RecordCount }).LogName
-$filterTable = @('StartTime' = $StartTime
+$filterTable = @{'StartTime' = $StartTime
 'EndTime' = $EndTime
 'LogName' = $Log
 'Id' = $Id
-)
+}
 $Events = Get-WinEvent -FilterHashTable $filterTable -ea 'SilentlyContinue'
 
 if($Events){return 1}else{return 0}
