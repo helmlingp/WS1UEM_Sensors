@@ -20,7 +20,7 @@ $status = 0
 if ($SearchResult.Count -ne 0) {
   foreach ($newupd in $SearchResult) {
     $UpdateID = $newupd.Identity.UpdateID
-    $updhistoryitem = $updhistory | Where-Object {$_.UpdateIdentity.UpdateID -match $UpdateID}
+    $updhistoryitem = $UpdateHistory | Where-Object {$_.UpdateIdentity.UpdateID -match $UpdateID}
     if($updhistoryitem){
       if($updhistoryitem.ResultCode -eq 4) {$status = 4}
     }
