@@ -14,10 +14,10 @@ $SearchResult = $UpdateSearcher.Search($Criteria).Updates
 
 $Sysinfo = New-Object -ComObject Microsoft.Update.SystemInfo
 $pending = $Sysinfo.RebootRequired
-if($pending -eq $true){return "Pending Reboot"} 
 
 $status = 0
 if ($SearchResult.Count -ne 0) {
+  $status = "Out-of-Date"
   foreach ($newupd in $SearchResult) {
     $UpdateID = $newupd.Identity.UpdateID
     $updhistoryitem = $UpdateHistory | Where-Object {$_.UpdateIdentity.UpdateID -match $UpdateID}
@@ -27,12 +27,8 @@ if ($SearchResult.Count -ne 0) {
   }
 }
 
-if ($SearchResult.Count -eq 0){
-  return "Up-to-Date"
-}else{
-  if($status -eq 4){
-    return "Update-Failed"
-  } else {
-    return "Out-of-Date"
-  }
-}
+if($pending -eq $true){return "Pending Reboot"}
+elseif($status -eq 4){return "Update-Failed"}
+elseif($status -ne 0){return "Out-of-Date"}
+elseif($status -eq 0){return "Up-to-Date"}
+else{return "No Status"}
