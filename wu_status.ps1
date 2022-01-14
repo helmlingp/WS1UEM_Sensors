@@ -5,6 +5,9 @@
 # based on https://docs.microsoft.com/en-us/windows/win32/wua_sdk/searching--downloading--and-installing-updates
 # Criteria - https://docs.microsoft.com/en-us/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search
 
+$testnet = Test-NetConnection -ComputerName www.catalog.update.microsoft.com -CommonTCPPort HTTP
+if($testnet.TcpTestSucceeded -eq "True"){}Else{return "No Connection"}
+
 $Session = New-Object -ComObject Microsoft.Update.Session
 $UpdateSearcher = $Session.CreateUpdateSearcher()
 $UpdateHistory = $UpdateSearcher.QueryHistory(0,100)
