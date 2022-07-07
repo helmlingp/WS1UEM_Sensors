@@ -1,9 +1,25 @@
-# Report Status of Windows Update - Up-To-Date/Pending Reboot/Out-of-Date/Update-Failed/No Status
-# Return Type: String
-# Execution Context: System 
-# Execution Architecture: Auto
-# based on https://docs.microsoft.com/en-us/windows/win32/wua_sdk/searching--downloading--and-installing-updates
-# Criteria - https://docs.microsoft.com/en-us/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search
+<# 
+  .Synopsis
+  Report Status of Windows Update - Up-To-Date/Pending Reboot/Out-of-Date/Update-Failed/No Status
+  .NOTES
+  Created:	May, 2021
+  Created by:	Phil Helmling, @philhelmling
+  Organization:	VMware, Inc.
+  .DESCRIPTION
+  Used to report the status of Windows Update of a device, rather than individual updates.
+  Status reported includes:
+  - Up-To-Date
+  - Pending Reboot
+  - Out-of-Date
+  - Update-Failed
+  - No Status
+  Based on https://docs.microsoft.com/en-us/windows/win32/wua_sdk/searching--downloading--and-installing-updates
+  Criteria - https://docs.microsoft.com/en-us/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search
+
+  Return Type: String
+  Execution Context: System
+  Execution Architecture: Auto
+#>
 
 $testnet = Test-NetConnection -ComputerName www.catalog.update.microsoft.com -CommonTCPPort HTTP
 if($testnet.TcpTestSucceeded -eq "True"){}Else{return "No Connection"}
